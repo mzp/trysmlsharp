@@ -1,3 +1,7 @@
+require 'tmpdir'
+require 'pathname'
+require 'json'
+
 class Trysmlsharp < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
@@ -8,6 +12,36 @@ class Trysmlsharp < Padrino::Application
   get :index, :map => '/' do
     render 'index'
   end
+
+  post :compile, :map => '/compile' do
+    ret = 0
+    output = ""
+
+    Dir.mktmpdir do|dir|
+      smi = Pathname.new(dir) + "trysml.smi"
+      sml = Pathname.new(dir) + "trysml.sml"
+
+      open(smi, "w") do|io|
+        io.print <<END
+_require "basis.smi"
+END
+      end
+
+      open(sml, "w") do |io|
+        io.print params["code"]
+      end
+
+      Dir.chdir(dir) {
+        output = %x(glaze -u ubuntu -H 54.248.92.192 -c "smlsharp trysml.sml && ./a.out" -a trysml.sml -a trysml.smi)
+        ret = output.split("\n").first =~ /status: 0/
+      }
+    end
+    {
+      "status" => (ret ? "ok" : "error"),
+      "output" => output
+    }.to_json
+  end
+
   ##
   # Caching support
   #
