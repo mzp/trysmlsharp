@@ -1,0 +1,16 @@
+!!! 5
+%html
+  %head
+    %title Try SML#
+    = stylesheet_link_tag 'bootstrap.min', 'main', 'codemirror'
+    = javascript_include_tag 'jquery', 'codemirror', 'ocaml', 'application'
+    = yield_content :include
+  %body
+    .container
+      %header
+        %h1 Try SML#
+        %small <a href="http://www.pllab.riec.tohoku.ac.jp/smlsharp/">SML#</a> is a new programming language in the Standard ML family being to provide practically important extensions while maintaining the compatibility of the Definition of Standard ML.
+      %section.main
+        = yield
+      %footer
+        Copyright &copy; 2012 ProofCafe

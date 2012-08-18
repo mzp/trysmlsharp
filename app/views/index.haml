@@ -1,0 +1,23 @@
+.row
+  .tabbable.span6
+    .pull-right.btn-group
+      %a.compile-btn.btn
+        %i.icon-cog
+        Run
+    %ul.nav.nav-tabs
+      %li.active
+        %a Source
+      %li
+        %a Options(not yet)
+    .tab-content
+      .tab-pane.active
+        %textarea#code= "(* write source code here *)\nval _ = print \"hello\";"
+  .span6
+    %ul.nav.nav-tabs
+      %li.active
+        %a Output
+    .tab-content
+      .tab-pane.active
+        %div.result
+    .alert.alert-success
+      Bulid Success

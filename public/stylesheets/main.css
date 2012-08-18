@@ -1,0 +1,29 @@
+body{
+    padding-top: 20px;
+}
+
+footer {
+    text-align: center;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.CodeMirror {
+    background-color: white;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.result {
+    background-color: white;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-bottom: 10px;
+    height: 250px;
+    widht: 460px;
+}
