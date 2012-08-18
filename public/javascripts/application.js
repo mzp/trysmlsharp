@@ -7,7 +7,7 @@ $(function(){
     $(".compile-btn").bind("click", function(){
         var code = editor.getValue();
         $(".status").removeClass("alert-error alert-success").text("compiling");
-        $.post("/compile",
+        $.post("/trysmlsharp/compile",
                { 'code' : code },
               function(response){
                   $(".result").text(response.output);

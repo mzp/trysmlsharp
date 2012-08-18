@@ -32,7 +32,7 @@ END
       end
 
       Dir.chdir(dir) {
-        output = %x(glaze -u ubuntu -H 54.248.92.192 -c "smlsharp trysml.sml && ./a.out" -a trysml.sml -a trysml.smi)
+        output = %x(bash -c 'source /home/mzp/.profile > /dev/null 2>&1 && glaze -u ubuntu -H 54.248.92.192 -c "smlsharp trysml.sml && ./a.out" -a trysml.sml -a trysml.smi')
         ret = output.split("\n").first =~ /status: 0/
       }
     end
