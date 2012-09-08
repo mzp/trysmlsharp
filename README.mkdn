@@ -1,0 +1,18 @@
+Try SML#
+===========
+
+This is web app to try SML# on browser.
+
+All SML# code are executed on Sandbox environment.
+
+Setup
+--------------
+
+ 1. Setup sandobx server by glaze http://glaze-sandbox.org/ and install SML# compiler on its server.
+
+ 2. Install glaze-client and edit `app/app.rb` to set a ip address of sandbox server.
+
+ 3. Install dependent Ruby library by `bundle install`.
+ 
+ 4. Run web server by `bundle exec padrino start`.
+
